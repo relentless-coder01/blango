@@ -2,7 +2,9 @@ from django.urls import path, include, re_path
 from rest_framework.urlpatterns import format_suffix_patterns
 
 from rest_framework.authtoken import views
-from blog.api.views import PostList, PostDetail, UserDetail, CommentDetail
+from blog.api.views import UserDetail, CommentDetail, TagViewSet
+
+# PostList, PostDetail
 
 # Swagger UI
 from drf_yasg import openapi
@@ -21,8 +23,8 @@ schema_view = get_schema_view(
 urlpatterns = [
     path("auth/", include("rest_framework.urls")),
     path("token-auth/", views.obtain_auth_token),
-    path("posts/", PostList.as_view(), name="api_post_list"),
-    path("posts/<int:pk>", PostDetail.as_view(), name="api_post_detail"),
+    # path("posts/", PostList.as_view(), name="api_post_list"),
+    # path("posts/<int:pk>", PostDetail.as_view(), name="api_post_detail"),
     path("users/<str:email>", UserDetail.as_view(), name="api_user_detail"),
     path("comments/<int:pk>", CommentDetail.as_view(), name="api_comment_detail"),
 ]
@@ -43,3 +45,18 @@ urlpatterns += [
 # To allow formatting options in browser
 # Eg. posts/4.json
 urlpatterns = format_suffix_patterns(urlpatterns)
+
+# routers
+from rest_framework.routers import DefaultRouter
+
+router = DefaultRouter()
+router.register("tags", TagViewSet)
+
+# Viewsets / routers
+from blog.api.views import PostViewSet
+
+router.register("posts", PostViewSet)
+
+urlpatterns += [
+  path("", include(router.urls)),
+]
