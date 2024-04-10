@@ -60,3 +60,12 @@ router.register("posts", PostViewSet)
 urlpatterns += [
   path("", include(router.urls)),
 ]
+
+# Filtering in views
+urlpatterns += [
+  path(
+    "posts/by-time/<str:period_name>/",
+    PostViewSet.as_view({"get": "list"}),
+    name="posts-by-time",
+),
+]
