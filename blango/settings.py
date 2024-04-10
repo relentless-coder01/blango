@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'blog',
     # Swagger UI
     'drf_yasg',
+    # django-filter
+    'django_filters',
 ]
 
 REST_FRAMEWORK = {
@@ -69,6 +71,14 @@ REST_FRAMEWORK = {
         "user_sustained": "5000/day",
         "user_burst": "100/minute",
     },
+    # Pagination
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 100,
+    # django-filter
+    "DEFAULT_FILTER_BACKENDS": [
+        "django_filters.rest_framework.DjangoFilterBackend",
+        "rest_framework.filters.OrderingFilter",
+    ],
 }
 
 SWAGGER_SETTINGS = {
