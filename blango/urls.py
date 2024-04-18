@@ -23,4 +23,5 @@ urlpatterns = [
     path("api/v1/", include("blog.api.urls")),
     # blog urls
     path("", blog.views.index),
+        path("post/<slug>/", blog.views.post_detail, name="blog-post-detail"),
 ]
