@@ -51,6 +51,9 @@ INSTALLED_APPS = [
     'drf_yasg',
     # django-filter
     'django_filters',
+    # django crispy forms
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
 
 REST_FRAMEWORK = {
@@ -172,3 +175,7 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# django crispy forms
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
