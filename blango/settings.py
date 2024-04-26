@@ -38,7 +38,8 @@ class Dev(Configuration):
     CSRF_COOKIE_SAMESITE = 'None'
     SESSION_COOKIE_SAMESITE = 'None'
 
-
+    # custom user model
+    AUTH_USER_MODEL = "blango_auth.User"
     # Application definition
 
     INSTALLED_APPS = [
@@ -60,6 +61,8 @@ class Dev(Configuration):
         'crispy_bootstrap5',
         # django toolbar
         "debug_toolbar",
+        # Custom user model
+        'blango_auth',
     ]
 
     REST_FRAMEWORK = {

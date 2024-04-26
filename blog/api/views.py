@@ -2,7 +2,7 @@ from rest_framework import generics
 from rest_framework.authentication import TokenAuthentication
 from blog.api.serializers import PostSerializer, UserSerializer, PostDetailSerializer, CommentSerializer, TagSerializer
 from blog.models import Post, Comment, Tag
-from django.contrib.auth.models import User
+from blango_auth.models import User
 
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 

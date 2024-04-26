@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from blog.models import Post, Tag, Comment
-from django.contrib.auth.models import User
+from blango_auth.models import User
 
 class PostSerializer(serializers.ModelSerializer):
   tags = serializers.SlugRelatedField(
