@@ -40,6 +40,9 @@ class Dev(Configuration):
 
     # custom user model
     AUTH_USER_MODEL = "blango_auth.User"
+    # 2-step django registration
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+    ACCOUNT_ACTIVATION_DAYS = 7
     # Application definition
 
     INSTALLED_APPS = [
@@ -118,7 +121,7 @@ class Dev(Configuration):
     TEMPLATES = [
         {
             'BACKEND': 'django.template.backends.django.DjangoTemplates',
-            'DIRS': [BASE_DIR / 'templates'],
+            'DIRS': [BASE_DIR / 'templates', BASE_DIR / 'blango_auth/templates'],
             'APP_DIRS': True,
             'OPTIONS': {
                 'context_processors': [
