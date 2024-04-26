@@ -58,6 +58,8 @@ class Dev(Configuration):
         # django crispy forms
         'crispy_forms',
         'crispy_bootstrap5',
+        # django toolbar
+        "debug_toolbar",
     ]
 
     REST_FRAMEWORK = {
@@ -103,8 +105,11 @@ class Dev(Configuration):
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
         # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+        # django toolbar
+        "debug_toolbar.middleware.DebugToolbarMiddleware",
     ]
-
+    # django toolbar
+    INTERNAL_IPS = ["192.168.11.179"]
     ROOT_URLCONF = 'blango.urls'
 
     TEMPLATES = [
