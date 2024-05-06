@@ -45,3 +45,7 @@ if settings.DEBUG:
     urlpatterns += [
         path("__debug__/", include(debug_toolbar.urls)),
     ]
+  
+urlpatterns += [
+  path("post-table/", blog.views.post_table, name="blog-post-table"),
+]
